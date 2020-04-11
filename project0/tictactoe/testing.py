@@ -108,3 +108,36 @@ def utility(board):
 if __name__ == "__main__":
     s = initial_state()
     print(utility(s))
+
+
+# def max_value(board):
+#     if terminal(board):
+#         return utility(board)
+
+#     value = -math.inf
+#     action_to_make = None
+#     for action in actions(board):
+#         print(f"max val is: {min_value(result(board, action))}")
+#         current_value = max(value, min_value(result(board, action)))
+#         if current_value > value:
+#             value = current_value
+#             action_to_make = action
+
+#     return [value, action_to_make]
+
+
+# def min_value(board):
+#     if terminal(board):
+#         return utility(board)
+
+#     value = math.inf
+#     action_to_make = None
+#     for action in actions(board):
+#         print(f"min val is: {max_value(result(board, action))}")
+#         current_value = max_value(result(board, action))
+#         print(f"current value in min is: {current_value}")
+#         if current_value < value:
+#             value = current_value
+#             action_to_make = action
+
+#     return [value, action_to_make]
