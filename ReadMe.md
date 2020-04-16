@@ -18,4 +18,4 @@ Degrees is a python program that utilizes a Breadth-first Search to find how man
 
 This implementation of the classic game "Tic Tac Toe" allows to play an AI program that uses the MiniMax algorithm to make its decisions for which move to make. You will never win against this program.
 
-![Gif showing Tic Tac Toe game](../assets/ttt.gif)
+![Gif showing Tic Tac Toe game](./assets/ttt.gif)
