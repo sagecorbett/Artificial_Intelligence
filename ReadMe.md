@@ -5,7 +5,7 @@ This repo displays all the projects I've done for Harvard's Online Artificial In
 
 ## Degrees 
 
-Degrees is a python program that utilizes a Breadth-first Search to find how many degrees one actor is from another.
+Degrees is a python program that utilizes a Breadth-first Search to search through over a million actors and movies to find how many degrees one actor is from another.
 
 ![Gif showing degrees](./assets/Degrees.gif)
 
