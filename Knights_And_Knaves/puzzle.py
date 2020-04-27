@@ -43,31 +43,19 @@ knowledge1 = And(
 # A says "We are the same kind."
 # B says "We are of different kinds."
 knowledge2 = And(
-    Or(AKnight, AKnave),  # A is either a Knight or a Knave
-    Or(BKnight, BKnave),  # B is either a Knight or a Knave
+    # If A is a true then they are either both Knights or Knaves
+    Biconditional(AKnight, Or(And(AKnight, BKnight), And(AKnave, BKnave))),
 
-    # We as Humans know you cannot be both
-    And(Not(And(AKnight, AKnave)), Not(And(BKnight, BKnave))),
+    # If A is false/lying then what they said is NOT true
+    Biconditional(AKnave, Not(Or(And(AKnight, BKnight), And(AKnave, BKnave)))),
 
-    # A implies that they are both the same 
-    And(Or(And(AKnight, BKnight), And(AKnave, BKnave))),
+    # If B is a Knight then A is a Knave
+    Implication(BKnight, AKnave),
 
     # B implies that they are different kinds
-    And(Or(AKnave, BKnight), Or(AKnight, BKnave)),
-
-    # If A is a Knave then they must be lying and B is a Knight
-    Implication(AKnave, And(AKnave, BKnight)),
-
-    # If A is a Knight then they must both be Knights
-    Implication(AKnight, And(AKnight, BKnight)),
-
-    # If B is a Knave then they are the same kind
-    Implication(BKnave, And(AKnave, BKnave)),
-
-    # If B is a Knight then they are different kinds
-    Implication(BKnight, And(BKnight, AKnave)) 
-
+    Biconditional(Or(BKnight, BKnave), Or(Not(And(AKnight, BKnight)), Not(And(AKnave, BKnave))))
 )
+
 
 # Puzzle 3
 # A says either "I am a knight." or "I am a knave.", but you don't know which.
@@ -75,7 +63,18 @@ knowledge2 = And(
 # B says "C is a knave."
 # C says "A is a knight."
 knowledge3 = And(
-    # TODO
+    # A says they are either AKnight or AKnave
+    Or(AKnight, AKnave),
+
+    # If B is a Knight then A is a Knave
+    Biconditional(And(AKnave, BKnight), And(Not(BKnight), Not(AKnave))).
+
+    # B says that C is a Knave if B is true then C is a Knave. 
+    # Likewise if C is a Knave then B is a Knight
+    Biconditional(Or(BKnight, BKnave), And(CKnave, Not(BKnave))),
+
+    # C says A is a Knight. If C is telling the truth the
+    Biconditional(CKnave, And(Not(CKnight), Not(AKnight)))
 )
 
 
