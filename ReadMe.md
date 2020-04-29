@@ -28,6 +28,7 @@ This implementation of the classic game "Tic Tac Toe" allows to play an AI progr
 ## Knights And Knaves
 
 Knights and Knaves uses knowledge engineering to take how a human would solve a problem and convert it into a way that computer could solve it using logic.
+
 Knights And Knaves rules: 
 1. A Knight can only and always tell the truth
 2. A Knave can only and always tell a lie
