@@ -3,7 +3,7 @@
 This AI program implement a minimax algorithm that does not let you win. It also features Alpha-Beta pruning to help optimize decision making.
 
 
-![Gif showing Tic Tac Toe game](../assets/ttt.gif)
+![Gif showing Tic Tac Toe game](../assets/gifs/ttt.gif)
 
 
 ## How to run this program:
