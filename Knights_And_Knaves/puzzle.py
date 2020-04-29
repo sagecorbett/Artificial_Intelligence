@@ -63,20 +63,33 @@ knowledge2 = And(
 # B says "C is a knave."
 # C says "A is a knight."
 knowledge3 = And(
-    # A says they are either AKnight or AKnave
+    # This logic says that A, B and C are either a Knight or a Knave but not both
     Or(AKnight, AKnave),
+    Not(And(AKnight, AKnave)),
+    Or(BKnight, BKnave),
+    Not(And(BKnight, BKnave)),
+    Or(CKnight, CKnave),
+    Not(And(CKnight, CKnave)),
 
-    # If B is a Knight then A is a Knave
-    Biconditional(And(AKnave, BKnight), And(Not(BKnight), Not(AKnave))).
+    # If A is a Knight then they are either AKnave or AKnight
+    Implication(AKnight, Or(AKnave, AKnight)),
 
-    # B says that C is a Knave if B is true then C is a Knave. 
-    # Likewise if C is a Knave then B is a Knight
-    Biconditional(Or(BKnight, BKnave), And(CKnave, Not(BKnave))),
+    # If A is a Knave then the lie would be the implication that they are
+    # AKnight OR AKnave. This would mean that they are both a Knight and a Knave
+    Implication(AKnave, And(AKnight, AKnave)),
 
-    # C says A is a Knight. If C is telling the truth the
-    Biconditional(CKnave, And(Not(CKnight), Not(AKnight)))
+    # If B is a Knight then A is a Knave and C is a Knave
+    Implication(BKnight, And(AKnave, CKnave)),
+
+    # If B is a Knave then A is a Knight
+    Implication(BKnave, And(AKnight, CKnight)),
+
+    # If C is a Knight then A is a Knight and B is a Knave
+    Implication(CKnight, And(AKnight, BKnave)),
+
+    # If C is a Knave then A is a Knave and B is a Knight
+    Implication(CKnave, And(BKnight, AKnave))
 )
-
 
 def main():
     symbols = [AKnight, AKnave, BKnight, BKnave, CKnight, CKnave]
