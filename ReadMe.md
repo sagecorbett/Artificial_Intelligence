@@ -1,6 +1,6 @@
 # Artificial Intelligence
 
-This repo displays all the projects I've done for Harvard's Online Artificial Intelligence course. In this ReadMe below there will be a gif featuring each project along with the project name. In order to see the code just scroll up and click the corresponding folder.
+This repo displays all of the Artificial Intelligence projects I have done (so far just the homework projects for Harvard CS50AI). In this ReadMe below there will be a gif featuring each project along with the project name. In order to see the code just scroll up and click the corresponding folder.
 
 
 ## Degrees 
